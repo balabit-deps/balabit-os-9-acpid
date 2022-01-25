@@ -1,0 +1,13 @@
+Description: do not print "exiting" message by default
+
+--- a/acpid.c
++++ b/acpid.c
+@@ -465,7 +465,7 @@
+ {
+ 	acpid_cleanup_rules(1);
+ 	delete_all_connections();
+-	acpid_log(LOG_NOTICE, "exiting");
++	acpid_log(LOG_DEBUG, "exiting");
+ 	unlink(pidfile);
+ 	exit(status);
+ }
